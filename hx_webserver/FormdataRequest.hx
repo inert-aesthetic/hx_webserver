@@ -35,7 +35,8 @@ class FormdataRequest {
         actualBytes = actualBytes.sub(0, actualBytes.length-("--"+boundary+"--").length-2);
         bytes = actualBytes;
     }
-    public function save(?filename:String = this.filename) {
+    public function save(?filename:String) {
+        filename??=this.filename;
         sys.io.File.saveBytes(filename, bytes);
     }
 }
