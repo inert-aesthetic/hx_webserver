@@ -14,7 +14,7 @@ class HTTPRequest {
     public var headers:Array<Array<String>> = [];
     public var error:String = null;
     public var client:Socket;
-    public var postData:String = "";
+    public var postTextData:String = "";
     private var server:HTTPServer;
     public var methods:Array<String>;
     public var formdata:FormdataRequest;
@@ -81,8 +81,8 @@ class HTTPRequest {
                 for (i in 0...v) {
                     f += t[i] + "\r\n";
                 }
-                postData = this.data.split(f)[1];
-                postData = postData.replace("\r", "");
+                postTextData = this.data.split(f)[1];
+                postTextData = postTextData?.replace("\r", "")??"";
             }
 
             if (getHeaderValue("Content-Type")?.contains("multipart/form-data;")) {
