@@ -85,7 +85,7 @@ class HTTPRequest {
                 postData = postData.replace("\r", "");
             }
 
-            if (getHeaderValue("Content-Type").contains("multipart/form-data;")) {
+            if (getHeaderValue("Content-Type")?.contains("multipart/form-data;")) {
                 formdata = new FormdataRequest(this);
             }
         } catch (err:String) {
